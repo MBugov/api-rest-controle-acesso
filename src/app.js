@@ -1,4 +1,5 @@
 const express = require('express');
+require("dotenv").config();
 const cors = require("cors");
 const router = require("./routes/usersRoutes");
 const AppError = require("./utils/appError");
@@ -25,7 +26,7 @@ app.all("*", (req, res, next) => {
 
 app.use(errorHandler);
 
-const PORT = 4000;
+const PORT = process.env.PORT;
 app.listen(PORT,() => {
     console.log(`✅ Servidor rodando na porta ${PORT}.`)
 })
