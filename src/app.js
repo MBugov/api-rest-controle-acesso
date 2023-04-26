@@ -1,7 +1,7 @@
 const express = require('express');
 require("dotenv").config();
 const cors = require("cors");
-const router = require("./routes/usersRoutes");
+const appRouter = require("./shared/routes/index");
 const AppError = require("./utils/appError");
 const errorHandler = require("./utils/errorHandler");
 
@@ -15,7 +15,7 @@ app.use(express.json());
 /*
 * Chama as rotas.
 */
-app.use("/api", router);
+app.use("/api/v1", appRouter);
 
 /*
 * Tratativa de erros sobre as URLs.
